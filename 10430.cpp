@@ -1,8 +1,7 @@
 #include <iostream>
 using namespace std;
 
-int main() 
-{ 
+int main() { 
     int A;
     int B;
     int C;
