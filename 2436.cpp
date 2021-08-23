@@ -11,15 +11,15 @@ int main(){
     ios::sync_with_stdio(0), cin.tie(0), cout.tie(0);
 
     int a,b;
-    cin >> a >> b;
+    cin >> a >> b; // a*b = gcd * lcd
 
     int k = a;
     a /= k;
     b /= k;
 
     int m,n;
-    for(int i=sqrt(b); i<=b; i++){
-        if(b%i ==0 && GCD(i,b/i) == 1){
+    for(int i=sqrt(b); i<=b; i++){ // find min m+n
+        if(b%i ==0 && GCD(i,b/i) == 1){ 
             m = i;
             n = b/i;
             break;
