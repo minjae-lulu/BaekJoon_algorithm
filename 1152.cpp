@@ -2,8 +2,7 @@
 #include <string>
 using namespace std;
 
-int main()
-{
+int main(){
     string a;
     getline(cin, a); // 전체를 받음
     int c=1; // 단어 1개로 시작
