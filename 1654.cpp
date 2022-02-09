@@ -10,7 +10,7 @@ vector<int> V;
 bool sol(long long x){
     long long cur = 0;
     for(int i=0; i<k; i++)  cur += V[i]/x;
-    return cur >=n;
+    return cur >=n; // possible or not
 }
 
 int main(){
@@ -24,7 +24,7 @@ int main(){
     }
 
     long long st = 1, en = pow(2,31)-1;
-    while(st < en){
+    while(st < en){ // binary search
         long long mid = (st + en +1)/2;
         if(sol(mid))    st = mid;
         else            en = mid - 1;
