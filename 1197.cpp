@@ -27,7 +27,7 @@ int main(){
     for(auto nxt : adj[1])  pq.push({nxt.first, 1, nxt.second}); // 일단 pq에 1번간선과 연결된 모든 정보(비용,정점1,정점2) 추가
     int cnt=0,ans=0;
 
-    while(cnt<v-1){ // edge 1개 추가하고 시작하여 v-1개 돌면서 e-1개를 추가하여 e개의 엣지를 가지고 1개씩만 연결된 그래프가 완성(미확실함..)
+    while(cnt<v-1){ // vertex 1개 추가하고 시작하여 v-1개 돌면서 v개의 vertex를 가지고 1개씩만 연결된 그래프가 완성
         int cost,a1,b1;
         tie(cost,a1,b1) = pq.top(); pq.pop(); // 현재 pq에서 최소값을 cost,a1,b1으로 지정하고 삭제한다.
         if(chk[b1])  continue; // 이미 연결돼있으면 pass, 아니면 추가 
