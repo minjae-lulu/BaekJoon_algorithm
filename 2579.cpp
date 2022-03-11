@@ -23,5 +23,5 @@ int main(){
     for(size_t i=4; i<n; i++){
         d[i] = min(d[i-2], d[i-3]) +s[i]; // i번째 안밟음 -> 그전꺼는 무조건 밟음. 그럼 2칸전 or 3칸전에를 안밟을수 있음
     }
-    cout << sum - min(d[n-1],d[n-2]);
+    cout << sum - min(d[n-1],d[n-2]); // 마지막 계단 밟음 -> 그전 or 그전전꺼 안밟음 -> 전체 - min(그전, 그전전)
 }
