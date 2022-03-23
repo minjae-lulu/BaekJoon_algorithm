@@ -5,10 +5,10 @@
 using namespace std;
 // 뱀의 머리와 꼬리 관리 - 큐 또는 덱으로 구현
 
-int board[105][105];
-int dx[4] = {0,1,0,-1};
-int dy[4] = {1,0,-1,0};
-bool exist[105][105]; // 뱀몸통 있나?
+int board[101][101];
+int dx[4] = {1,0,-1,0}; // 이거 설정 완전 중요
+int dy[4] = {0,1,0,-1};
+bool exist[101][101]; // 뱀몸통 있나?
 char turn[10001]; // 방향전환 위해서
 
 int main(){
@@ -30,6 +30,7 @@ int main(){
 
     queue<pair<int,int> > snake; // 뱀의 몸통위치
     snake.push(make_pair(1,1));
+    exist[1][1] = true;
 
     int ans = 0; //시간
     int now_dir = 0;
@@ -43,15 +44,16 @@ int main(){
         snake.push(make_pair(n_c, n_r));
 
         if(turn[ans] == 'D'){
-            now_dir++;
+            now_dir +=1;
             if(now_dir == 4)    now_dir =0;
         }
         else if(turn[ans] == 'L'){
-            now_dir--;
+            now_dir -= 1;
             if(now_dir == -1)    now_dir =3;
         }
 
         if(board[n_c][n_r] == 1)    board[n_c][n_r] = 0; // 사과있으면 사과만 제거
+        
         else{ // 사과없으면 꼬리 없어짐
             if(exist[n_c][n_r] == true)  break; // 머리가 꼬리에 부딪히면 끝
             exist[snake.front().first][snake.front().second] = false;
